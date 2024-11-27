@@ -4,7 +4,7 @@
   "description": "E_commerce_website",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon backend/server.js",
+    "start": "node server.js",
     "dev": "set NODE_ENV=development&& nodemon backend/server.js ",
     "prod": "set NODE_ENV=production&& nodemon backend/server.js ",
     "seeder": "node backend/utils/seeder.js"
