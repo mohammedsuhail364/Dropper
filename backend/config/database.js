@@ -1,7 +1,7 @@
 const mongoose=require('mongoose')
 
 const connectdatabase=()=>{
-    mongoose.connect(process.env.DB_LOCAL_URI,{
+    mongoose.connect('mongodb+srv://Suhailcart:suhail364@cluster0.jl7nkbn.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0',{
         useNewUrlParser:true,
         useUnifiedTopology:true
     }).then(con=>{
