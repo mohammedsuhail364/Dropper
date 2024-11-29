@@ -4,7 +4,7 @@ const errorMiddleware=require('./middlewares/error')
 const cookieParser = require('cookie-parser');
 const path=require('path')
 const dotenv=require('dotenv')
-
+const cors=require('cors')
 
 dotenv.config({path:path.join(__dirname,'config/config.env')})
 
@@ -12,6 +12,14 @@ dotenv.config({path:path.join(__dirname,'config/config.env')})
 app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads',express.static(path.join(__dirname,'uploads')))
+
+app.use(
+    cors({
+      origin: 'https://mohammedsuhail364.github.io', // Allow requests from your frontend URL
+      methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+      credentials: true, // Allow credentials (cookies, authorization headers, etc.)
+    })
+  );
 
 const products=require('./routes/product')
 const auth=require('./routes/auth');
