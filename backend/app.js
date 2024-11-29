@@ -13,13 +13,24 @@ app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads',express.static(path.join(__dirname,'uploads')))
 
+const allowedOrigins = [
+  'http://localhost:3000', // Local development
+  'https://mohammedsuhail364.github.io', // Production frontend
+];
+
 app.use(
-    cors({
-      origin: 'https://mohammedsuhail364.github.io', // Allow requests from your frontend URL
-      methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-      credentials: true, // Allow credentials (cookies, authorization headers, etc.)
-    })
-  );
+  cors({
+    origin: function (origin, callback) {
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true); // Allow the request
+      } else {
+        callback(new Error('Not allowed by CORS')); // Block the request
+      }
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true,
+  })
+);
 
 const products=require('./routes/product')
 const auth=require('./routes/auth');
