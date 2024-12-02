@@ -13,20 +13,13 @@ app.use(express.json());
 app.use(cookieParser());
 app.use('/uploads',express.static(path.join(__dirname,'uploads')))
 
-const allowedOrigins = [
-  'http://localhost:3000', // Local development
-  'https://mohammedsuhail364.github.io', // Production frontend
-];
 
 app.use(
   cors({
-    origin: function (origin, callback) {
-      if (allowedOrigins.includes(origin)) {
-        callback(null, true); // Allow the request
-      } else {
-        callback(new Error('Not allowed by CORS')); // Block the request
-      }
-    },
+    origin:[
+  'http://localhost:3000', // Local development
+  'https://mohammedsuhail364.github.io', // Production frontend
+]
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
   })
