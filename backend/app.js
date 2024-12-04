@@ -19,7 +19,7 @@ app.use(
     origin:[
   'http://localhost:3000', // Local development
   'https://mohammedsuhail364.github.io', // Production frontend
-]
+],
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
   })
