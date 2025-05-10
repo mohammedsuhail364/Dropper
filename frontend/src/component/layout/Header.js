@@ -43,7 +43,7 @@ export default function Header() {
                   src={user.avatar ?? "./images/default_avatar.png"}
                 />
               </figure> */}
-              <span>{user.name}</span>
+              <span>{user?.name || ""}</span>
             </DropdownToggle>
             <DropdownMenu>
               {user.role==='admin'&&
