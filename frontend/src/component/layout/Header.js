@@ -46,7 +46,7 @@ export default function Header() {
               <span>{user?.name || ""}</span>
             </DropdownToggle>
             <DropdownMenu>
-              {user.role && user.role==='admin'&&
+              {user && user.role==='admin'&&
               <DropdownItem onClick={()=>{navigate('/admin/dashboard')}} className="text-dark">DashBoard</DropdownItem>
               }
               <DropdownItem onClick={()=>{navigate('/myprofile')}} className="text-dark">Profile</DropdownItem>
